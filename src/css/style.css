@@ -83,4 +83,6 @@ body {
 @media only screen and (max-width: 500px) {
     .col { margin: 1% 0 1% 0%;}
     .column { width: 100%; }
+
 }
+
