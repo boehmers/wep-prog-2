@@ -23,6 +23,11 @@ body {
     padding: 5px;
 }
 
+@media only screen and (max-width: 500px) {
+    .col { margin: 1% 0 1% 0%;}
+    .column { width: 100%; }
+}
+
 /* group the elements before and after the columns for smaller windows */
 .group:before,
 .group:after{
@@ -79,10 +84,30 @@ body {
     cursor: pointer;
 }
 
+#taskBox{
+    display:none;
+    border:2px solid #000;
+    border-radius: 8px;
+    width:80%;
+    height:20%;
+    margin: 0 auto;
+}
 
-@media only screen and (max-width: 500px) {
-    .col { margin: 1% 0 1% 0%;}
-    .column { width: 100%; }
-
+.addTaskBox{
+    border:2px solid #aaaaaa;
+    border-radius: 8px;
+    width:80%;
+    height:20%;
+    margin: 0 auto;
+}
+.plusCircle{
+    color:#aaaaaa;
+    border:2px solid #aaaaaa;
+    border-radius: 50%;
+    width:2em;
+    height:2em;
+    cursor:pointer;
+    margin:0 auto;
+    text-align: center;
 }
 

@@ -4,23 +4,30 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../css/style.css" type="text/css">
     <title>Fancy Project Planner Main</title>
+    <!-- <script src="../js/modalWindow.js"></script> -->
+    <script src="../js/task.js"></script>
 </head>
 <body>
 <div class="header">
-    <script src="../js/userdata.js"> //TODO: script for userdata operations </script>
+    <!-- <script src="../js/userdata.js"> //TODO: script for userdata operations </script>
     <p>Hallo,
-        <script>getUsername();  //TODO: read username from json </script></p>
-    <button onclick="function logoutUser() {
+        <script>getUsername();  //TODO: read username from json </script></p> -->
+    <!-- <button onclick="function logoutUser() {
             //TODO: logout user, delete session from server
         }
-        logoutUser()">Logout</button>
+        logoutUser()">Logout</button> -->
 </div>
 
 <h2>Fancy Project Planner</h2>
-
 <div class="planner group">
     <div class="column">
         <p>Ideen / Ausstehend</p>
+        <div id="taskBox">
+            <p>Ein neuer Task</p>
+        </div>
+        <div class="addTaskBox">
+            <div class="plusCircle" onclick="add()">+</div>
+        </div>
     </div>
     <div class="column">
         <p>In Bearbeitung</p>
@@ -30,19 +37,19 @@
     </div>
 </div>
 
-
 <!-- modal dialog -->
-<button id="addTaskBtn">Aufgabe hinzufügen</button>
+<!-- <button id="addTaskBtn" >Aufgabe hinzufügen</button> -->
 <div id="modalDialog" class="modal">
     <div class="modal-content">
-        <span class="close">x</span>
+        <div class="close" onclick="close()">x</div>
         <form>
             <p>Text:</p>
-            <textarea class="modal-text" autofocus rows="10"></textarea>
+            <textarea id="taskDescription" class="modal-text" autofocus rows="10"></textarea>
+            <button>Speichern</button>
+            <button>Abbrechen</button>
             <!-- TODO: add buttons to save the entry -->
         </form>
     </div>
 </div>
-<script src="../js/modalWindow.js"></script>
 </body>
 </html>
