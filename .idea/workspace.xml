@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="668d85c8-2a42-45e0-8c13-ad61b68d76b3" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/css/style.css" afterPath="$PROJECT_DIR$/src/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/html/main.html" afterPath="$PROJECT_DIR$/src/html/main.html" />
     </list>
     <ignored path="wep-prog-2.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -28,8 +26,8 @@
       <file leaf-file-name="main.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/html/main.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="101">
-              <caret line="9" column="67" selection-start-line="9" selection-start-column="67" selection-end-line="9" selection-end-column="67" />
+            <state relative-caret-position="288">
+              <caret line="20" column="27" selection-start-line="20" selection-start-column="27" selection-end-line="20" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -289,7 +287,7 @@
       <option name="presentableId" value="Default" />
       <updated>1463654795622</updated>
       <workItem from="1463654796838" duration="2605000" />
-      <workItem from="1463752705650" duration="1815000" />
+      <workItem from="1463752705650" duration="1929000" />
     </task>
     <task id="LOCAL-00001" summary="First draft of the main window">
       <created>1463655828441</created>
@@ -312,11 +310,18 @@
       <option name="project" value="LOCAL" />
       <updated>1463657402388</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Add Task button">
+      <created>1463754571471</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1463754571471</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4420000" />
+    <option name="totallyTimeSpent" value="4534000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="270" y="53" width="1323" height="979" extended-state="0" />
@@ -346,7 +351,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="First draft of the main window" />
-    <option name="LAST_COMMIT_MESSAGE" value="First draft of the main window" />
+    <MESSAGE value="Add Task button" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Task button" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -395,8 +401,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/html/main.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="101">
-          <caret line="9" column="67" selection-start-line="9" selection-start-column="67" selection-end-line="9" selection-end-column="67" />
+        <state relative-caret-position="288">
+          <caret line="20" column="27" selection-start-line="20" selection-start-column="27" selection-end-line="20" selection-end-column="27" />
           <folding />
         </state>
       </provider>
