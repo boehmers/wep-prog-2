@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="668d85c8-2a42-45e0-8c13-ad61b68d76b3" name="Default" comment="few changes">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/js/task.js" />
+    <list default="true" id="668d85c8-2a42-45e0-8c13-ad61b68d76b3" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/css/style.css" afterPath="$PROJECT_DIR$/src/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/html/main.html" afterPath="$PROJECT_DIR$/src/html/main.html" />
     </list>
     <ignored path="wep-prog-2.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -39,8 +36,8 @@
       <file leaf-file-name="task.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/js/task.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="418">
-              <caret line="19" column="25" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="25" />
+            <state relative-caret-position="374">
+              <caret line="17" column="33" selection-start-line="17" selection-start-column="33" selection-end-line="17" selection-end-column="33" />
               <folding />
             </state>
           </provider>
@@ -314,7 +311,7 @@
       <workItem from="1463654796838" duration="2605000" />
       <workItem from="1463745039498" duration="93000" />
       <workItem from="1463760938534" duration="15821000" />
-      <workItem from="1463778505683" duration="2068000" />
+      <workItem from="1463778505683" duration="2156000" />
     </task>
     <task id="LOCAL-00001" summary="First draft of the main window">
       <created>1463655828441</created>
@@ -337,15 +334,22 @@
       <option name="project" value="LOCAL" />
       <updated>1463657402388</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="few changes">
+      <created>1463780614736</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1463780614736</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20587000" />
+    <option name="totallyTimeSpent" value="20675000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="215" y="0" width="1612" height="1032" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21580929" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -495,8 +499,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/js/task.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="19" column="25" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="25" />
+        <state relative-caret-position="374">
+          <caret line="17" column="33" selection-start-line="17" selection-start-column="33" selection-end-line="17" selection-end-column="33" />
           <folding />
         </state>
       </provider>
