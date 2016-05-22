@@ -4,28 +4,34 @@
 var taskBox;
 var modal;
 
-function add(){
-    taskBox=document.getElementById('taskBox');
-    modal = document.getElementById('modalDialog');
-    taskBox.style.display="block";
-    modal.style.display="block";
-    //TODO: save text to taskBox
+function add(listID){
+    //Add element
+    var node = document.createElement("DIV");            
+    var button = document.createElement("BUTTON");
+    var buttonText = document.createTextNode("Beschreibung hinzufügen");
+    button.appendChild(buttonText);
+    button.addEventListener("click", modalDialog);
+    node.id="task";
+    node.appendChild(button);
+    document.getElementById(listID).appendChild(node);
 };
 
-function close(){
-    taskBox=document.getElementById('taskBox')
+function modalDialog(){
+    //show modal dialog
     modal = document.getElementById('modalDialog');
-    taskBox.style.display="none";
+    modal.style.display="block";
+}
+
+
+function close(){
+    modal = document.getElementById('modalDialog');
     modal.style.display="none";
-    console.log("close");
+    
 };
 
 function save(){
-    taskBox=document.getElementById('taskBox')
     modal = document.getElementById('modalDialog');
-    taskBox.style.display="none";
     modal.style.display="none";
-
     //TODO: Insert textdescription
     //var description=document.getElementById("taskDescription");
     //var inputtext=document.createTextNode();

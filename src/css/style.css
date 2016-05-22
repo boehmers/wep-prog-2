@@ -84,20 +84,20 @@ body {
     cursor: pointer;
 }
 
-#taskBox{
-    display:none;
+#task{
     border:2px solid #000;
     border-radius: 8px;
     width:80%;
     height:20%;
-    margin: 0 auto;
+    padding:5px;
+    margin: 5px;
 }
 
 .addTaskBox{
     border:2px solid #aaaaaa;
     border-radius: 8px;
     width:80%;
-    height:20%;
+    height:10%;
     margin: 0 auto;
 }
 .plusCircle{
