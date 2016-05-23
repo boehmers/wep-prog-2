@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../css/style.css" type="text/css">
+    <title>Fancy Project Planner Main</title>
+    <script src="../js/task.js"></script>
+</head>
+<body>
+<div class="header">
+    <!-- <script src="../js/userdata.js"> //TODO: script for userdata operations </script>
+    <p>Hallo,
+        <script>getUsername();  //TODO: read username from json </script></p> -->
+    <!-- <button onclick="function logoutUser() {
+            //TODO: logout user, delete session from server
+        }
+        logoutUser()">Logout</button> -->
+</div>
+
+<h2>Fancy Project Planner</h2>
+<div class="planner group">
+    <div class="column">
+        <p>Ideen / Ausstehend</p>
+        <ul id="taskList1"></ul>
+        <div class="addTaskBox">
+            <div class="plusCircle" onclick="add(taskList1.id);">+</div>
+        </div>
+    </div>
+    <div class="column">
+        <p>In Bearbeitung</p>
+        <ul id="taskList2"></ul>
+        <div class="addTaskBox">
+            <div class="plusCircle" onclick="add(taskList2.id)">+</div>
+        </div>
+    </div>
+    <div class="column">
+        <p>Abgeschlossen</p>
+        <ul id="taskList3"></ul>
+        <div class="addTaskBox">
+            <div class="plusCircle" onclick="add(taskList3.id)">+</div>
+        </div>
+    </div>
+</div>
+
+<!-- modal dialog -->
+<!-- <button id="addTaskBtn" >Aufgabe hinzufügen</button> -->
+<div id="modalDialog" class="modal">
+    <div class="modal-content">
+        <div class="close" onclick="close()">x</div>
+        <form>
+            <p>Text:</p>
+            <textarea id="taskDescription" class="modal-text" autofocus rows="10"></textarea>
+            <button onclick="save()">Speichern</button>
+            <button onclick="close()">Abbrechen</button>
+            <!-- TODO: add buttons to save the entry -->
+        </form>
+    </div>
+</div>
+</body>
+</html>
