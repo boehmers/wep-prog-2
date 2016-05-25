@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="../css/style.css" type="text/css">
     <title>Fancy Project Planner Main</title>
     <script src="../js/task.js"></script>
+    <script src="../js/dragndrop.js"></script>
 </head>
 <body>
 <div class="header">
@@ -26,14 +27,14 @@
             <div class="plusCircle" onclick="add(taskList1.id);">+</div>
         </div>
     </div>
-    <div class="column">
+    <div class="column" ondrop="drop(event)" ondragover="allowDrop(event)">
         <p>In Bearbeitung</p>
         <ul id="taskList2"></ul>
         <div class="addTaskBox">
             <div class="plusCircle" onclick="add(taskList2.id)">+</div>
         </div>
     </div>
-    <div class="column">
+    <div class="column" ondrop="drop(event)" ondragover="allowDrop(event)">
         <p>Abgeschlossen</p>
         <ul id="taskList3"></ul>
         <div class="addTaskBox">
