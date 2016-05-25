@@ -84,7 +84,7 @@ body {
     cursor: pointer;
 }
 
-#task{
+.task{
     border:2px solid #000;
     border-radius: 8px;
     width:80%;

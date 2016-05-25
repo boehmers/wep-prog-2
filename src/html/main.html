@@ -24,22 +24,16 @@
         <p>Ideen / Ausstehend</p>
         <ul id="taskList1"></ul>
         <div class="addTaskBox">
-            <div class="plusCircle" onclick="add(taskList1.id);">+</div>
+            <div class="plusCircle" onclick="add(taskList1.id)">+</div>
         </div>
     </div>
     <div class="column" ondrop="drop(event)" ondragover="allowDrop(event)">
         <p>In Bearbeitung</p>
         <ul id="taskList2"></ul>
-        <div class="addTaskBox">
-            <div class="plusCircle" onclick="add(taskList2.id)">+</div>
-        </div>
     </div>
     <div class="column" ondrop="drop(event)" ondragover="allowDrop(event)">
         <p>Abgeschlossen</p>
         <ul id="taskList3"></ul>
-        <div class="addTaskBox">
-            <div class="plusCircle" onclick="add(taskList3.id)">+</div>
-        </div>
     </div>
 </div>
 
@@ -47,12 +41,12 @@
 <!-- <button id="addTaskBtn" >Aufgabe hinzufügen</button> -->
 <div id="modalDialog" class="modal">
     <div class="modal-content">
-        <div class="close" onclick="close()">x</div>
+        <span class="close" onclick="close(modalDialog.id)">x</span>
         <form>
             <p>Text:</p>
             <textarea id="taskDescription" class="modal-text" autofocus rows="10"></textarea>
-            <button onclick="save()">Speichern</button>
-            <button onclick="close()">Abbrechen</button>
+            <button onclick="save(taskDescription.id)">Speichern</button>
+            <button onclick="save()">Abbrechen</button>
             <!-- TODO: add buttons to save the entry -->
         </form>
     </div>
