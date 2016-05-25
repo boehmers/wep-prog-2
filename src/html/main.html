@@ -6,6 +6,7 @@
     <title>Fancy Project Planner Main</title>
     <script src="../js/task.js"></script>
     <script src="../js/dragndrop.js"></script>
+	<script src="../js/fileaccess.js"></script>
 </head>
 <body>
 <div class="header">
@@ -19,6 +20,12 @@
 </div>
 
 <h2>Fancy Project Planner</h2>
+<!-- TEST-BUTTONS -->
+<button onclick="readFile('example.json')">Test-Lesen</button>
+<button onclick="readFileAsync('example.json', TESTOnDoneRead)">Test-Lesen-Async</button>
+<button onclick="writeFile('testwrite.txt', 'Test-Text')">Test-Schreiben</button>
+<button onclick="writeFileAsync('testwrite.txt', 'Test-Text', TESTOnDoneWrite)">Test-Schreiben-Async</button>
+
 <div class="planner group">
     <div class="column">
         <p>Ideen / Ausstehend</p>
