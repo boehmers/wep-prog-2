@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="../css/loginStyle.css">
+<link rel="stylesheet" href="../css/style.css">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Fancy Project Planner</title>
+    <script language="JavaScript" type="text/javascript" src="../js/loginFunctions.js"></script>
+    <script src="../js/task.js"></script>
+</head>
+<body>
+    <div id="loginWindow">
+        <form class="center">
+            <label for="username" class="loginFields">Username</label>
+            <input id="username" class="loginFields" class="center" type="text" placeholder="Username">
+            <br>
+            <label for="pw" class="loginFields">Passwort</label>
+            <input id="pw" class="loginFields" class="center" placeholder="Passwort" type="password">
+            <br>
+            <button type="submit" class="center">Login</button>
+            <button type="button" class="center" id="registerButton" onclick="pressRegisterButton()">Registrieren</button>
+        </form>
+    </div>
+    <div id="registerDialog" class="modal">
+        <dialog class="center">
+            <label for="regUsername" class="loginFields">Username</label>
+            <input id="regUsername" class="center" type="text" placeholder="Username">
+            <br>
+            <label for="regPw" class="loginFields">Passwort</label>
+            <input id="regPw" class="center" type="password" placeholder="Passwort">
+            <br>
+            <label for="confirmRegPw" class="loginFields">Passwort bestätigen</label>
+            <input id="confirmRegPw" class="center" type="password" placeholder="Passwort bestätigen">
+            <br>
+            <div class="dropdown">
+                <button onclick="clickDropdown()" class="dropbtn">Farbe</button>
+                <div id="colorDropdown" class="colorDropdownContent">
+                    <div class="colorDropdownChoose">
+                        <img src="../../../../../WebstormProjects/untitled/red.jpg" id="red">
+                        <label for="red">Rot</label>
+                    </div>
+                    <div class="colorDropdownChoose" id="blue">
+                        <img src="../../../../../WebstormProjects/untitled/blue.jpg">
+                        <label for="blue">Blau</label>
+                    </div>
+                    <div class="colorDropdownChoose" id="green">
+                        <img src="green.png">
+                        <label for="green">Grün</label>
+                    </div>
+                </div>
+            </div>
+        </dialog>
+    </div>
+</body>
+</html>
