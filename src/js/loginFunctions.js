@@ -2,15 +2,15 @@ var regModal;
 
 function pressRegisterButton() {
     //show modal dialog
-    modal = document.getElementById('registerDialog');
-    modal.style.display="block";
+    regModal = document.getElementById('registerDialog');
+    regModal.style.display="block";
 }
 
 function clickDropdown(){
     document.getElementById("colorDropdown").classList.toggle("show");
     
     window.onclick = function(event) {
-        if(!event.target.matches('.dropbtn')){
+        if(!event.target.matches('.btn')){
             var dropdowns = document.getElementsByClassName("colorDropdownContent");
             
             var i;
@@ -24,3 +24,8 @@ function clickDropdown(){
         }
     }
 }
+
+function closeRegDialog(){
+    regModal = document.getElementById("registerDialog");
+    regModal.style.display="none";
+};

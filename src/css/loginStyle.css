@@ -1,27 +1,39 @@
-.loginFields{
+#loginWindow{
+
+}
+
+.formFields{
     display: inline-block;
-    width: 10em;
+    width: 15em;
     margin-top: 5px;
     margin-bottom: 5px;
 }
 
+/*Zentriert Container in der Bildschirmmitte*/
 .center{
-    margin: auto;
+    margin: 15% auto;
     width: 33.3%;
-    text-align: center;
-}
-
-#loginWindow form{
     display: block;
-    background-color: aqua;
+    background-color: #99CCFF;
+    border: 1px solid #B0B0B0;
 }
 
-#loginWindow button{
-    width: 100px;
+/*Zentriert die Inhalte eines Containers*/
+.centeredContent{
+    text-align: center;
+    margin: 15% auto;
 }
 
+/*Dialog, um User zu registrieren (Popup)*/
 #registerDialog{
     display:none;
+    background-color: #99CCFF;
+    width: 50%;
+    border: 1px solid #B0B0B0;
+    z-index: 1;
+    position: fixed;
+    left: 25%;
+    top: -20%;
 }
 
 #colorDropdown img{
@@ -29,18 +41,20 @@
     height: 30px;
 }
 
-.dropbtn{
-    background-color: #4CAF50;
+.btn{
+    background-color: #6699FF;
     color: white;
-    padding: 16px;
+    padding: 8px;
     font-size:16px;
-    border: none;
+    border: thin solid #99CCCC;
     cursor: pointer;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
-.dropbtn:hover,
-.dropbtn:focus{
-    background-color: #3E8E41;
+.btn:hover,
+.btn:focus{
+    background-color: #3333FF;
 }
 
 .dropdown{
