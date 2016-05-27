@@ -4,12 +4,13 @@
 var modal;
 var counter=0;
 var textArea;
+var node;
 
 //noinspection JSAnnotator
 function add(listID){
     //adds a taskBox to the tasklist
     counter++;
-    var node = document.createElement("DIV");
+    node = document.createElement("DIV");
     var taskBoxLabel = document.createElement("LABEL");
     taskBoxLabel.className="taskBoxLabel";
     taskBoxLabel.id="taskLabel"+counter;
@@ -19,7 +20,6 @@ function add(listID){
 
     //make taskbox draggable and append children    
     node.draggable="true";
-    //node.ondragstart="drag(event)";
     node.addEventListener("dragstart", drag);
     document.getElementById(listID).appendChild(node);
     node.appendChild(taskBoxLabel);
@@ -43,4 +43,12 @@ function save(){
     modal.style.display="none";
     var label = document.getElementById("taskLabel"+counter);
     label.innerHTML=textArea.value;
+
+    // optional: change height of taskbox for long textareas
+    //var textLength = document.getElementById("taskDescription").value.length;
+    //console.log(textLength);
+    //if (textLength > 25){
+    //    node.style.height="10%";
+    //}
 };
+
