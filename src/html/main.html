@@ -31,7 +31,7 @@
         <p>Ideen / Ausstehend</p>
         <ul id="taskList1"></ul>
         <div class="addTaskBox">
-            <div class="plusCircle" onclick="add(taskList1.id);modalDialog()">+</div>
+            <div class="plusCircle" onclick="modalDialog()">+</div>
         </div>
     </div>
     <div class="column" ondrop="drop(event)" ondragover="allowDrop(event)">
@@ -48,13 +48,12 @@
 <!-- <button id="addTaskBtn" >Aufgabe hinzufügen</button> -->
 <div id="modalDialog" class="modal">
     <div class="modal-content">
-        <span class="close" onclick="close(modalDialog.id)">x</span>
-        <form>
+        <span class="close" onclick="cancel()">x</span>
+        <form id="textForm">
             <p>Text:</p>
-            <textarea id="taskDescription" class="modal-text" autofocus rows="10"></textarea>
-            <button onclick="save(taskDescription.id)">Speichern</button>
-            <button onclick="save()">Abbrechen</button>
-            <!-- TODO: add buttons to save the entry -->
+            <textarea id="taskDescription" class="modal-text" autofocus rows="10" maxlength="50"></textarea>
+            <div class="button" onclick="add(taskList1.id);save()">Speichern</div>
+            <div class="button" onclick="cancel()">Abbrechen</div>
         </form>
     </div>
 </div>

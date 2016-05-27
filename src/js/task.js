@@ -3,37 +3,44 @@
  */
 var modal;
 var counter=0;
-var taskBoxLabel;
+var textArea;
 
+//noinspection JSAnnotator
 function add(listID){
     //adds a taskBox to the tasklist
     counter++;
     var node = document.createElement("DIV");
-    taskBoxLabel = document.createElement("LABEL");
+    var taskBoxLabel = document.createElement("LABEL");
+    taskBoxLabel.className="taskBoxLabel";
+    taskBoxLabel.id="taskLabel"+counter;
     node.className="task";  //for CSS
     node.id="task"+counter;
     console.log(node.id);
-    //make taskbox draggable
+
+    //make taskbox draggable and append children    
     node.draggable="true";
-    node.ondragstart="drag(event)";
+    //node.ondragstart="drag(event)";
+    node.addEventListener("dragstart", drag);
     document.getElementById(listID).appendChild(node);
+    node.appendChild(taskBoxLabel);
 };
 
 function modalDialog(){
     //show modal dialog
     modal = document.getElementById('modalDialog');
     modal.style.display="block";
+    textArea = document.getElementById('taskDescription');
+    textArea.value="";
 };
 
-function close(){
+function cancel(){
     modal = document.getElementById('modalDialog');
     modal.style.display="none";
-    console.log("hallo");
-};
+}
 
-function save(textarea){
+function save(){
     modal = document.getElementById('modalDialog');
     modal.style.display="none";
-    taskBoxLabel.text=textarea.value;
-    //TODO: Insert textdescription
+    var label = document.getElementById("taskLabel"+counter);
+    label.innerHTML=textArea.value;
 };
