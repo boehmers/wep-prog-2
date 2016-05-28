@@ -8,29 +8,30 @@
     <title>Fancy Project Planner</title>
     <script language="JavaScript" type="text/javascript" src="../js/loginFunctions.js"></script>
     <script src="../js/task.js"></script>
+    <script src="../js/userdata.js"></script>
 </head>
 <body>
 
-    <!-- Initialer Login-Screen-->
+    <!-- initial Login-Screen-->
     <div class="centeredContent">
         <form class="center">
             <label for="username" class="formFields">Username</label>
             <input id="username" class="formFields" type="text" placeholder="Username">
             <br>
-            <label for="pw" class="formFields">Passwort</label>
-            <input id="pw" class="formFields" placeholder="Passwort" type="password">
+            <label for="password" class="formFields">Passwort</label>
+            <input id="password" class="formFields" placeholder="Passwort" type="password">
             <br>
-            <button type="submit" class="btn">Login</button>
+            <button type="button" class="btn" onclick="loginCheck()">Login</button>
             <button type="button" id="registerButton" class="btn" onclick="pressRegisterButton()">Registrieren</button>
         </form>
     </div>
 
-    <!--Registrier_Fenster, geht auf, sobald der Registrieren-Button gedrückt wird.-->
+    <!--register-screen, opens when the "Register"-button is pressed-->
     <div id="registerDialog" class="center">
         <span class=close onclick="closeRegDialog(registerDialog.id)">X</span>  <!--Zum schließen-->
 
-        <!-- Eingeben der User-Daten-->
-        <form class="center">
+        <!-- Input of User-Daten-->
+        <form class="centeredContent">
             <label for="regUsername" class="formFields">Username</label>
             <input id="regUsername" class="formFields" type="text" placeholder="Username">
             <br>
@@ -41,33 +42,36 @@
             <input id="confirmRegPw" class="formFields" type="password" placeholder="Passwort bestätigen">
             <br>
 
-            <!--Dropdown-Menü für die Farbauswahl
+            <!--Dropdown-Menu for the choice of the new users colour
             Red: #A80000
             Green: #00CC33
             Blue: #3366FF
             Yellow: #ccff00
             -->
             <div class="dropdown">
-                <button onclick="clickDropdown()" class="btn">Farbe</button>
-                <div id="colorDropdown" class="colorDropdownContent">
-                    <div class="colorDropdownChoose">
-                        <img src="/data/red.png" id="red">
-                        <label for="red">Rot</label>
+                <button class="btn" id="dropbtn">Farbe</button>
+
+                <div class="dropdownContent">
+                    <div onclick="chooseColor('chooseRed')">
+                        <img class="line1" src="http://localhost/wep-prog-2/data/red.png">
+                        <p class="line1">Rot</p>
                     </div>
-                    <div class="colorDropdownChoose" id="blue">
-                        <img src="../data/blue.png">
-                        <label for="blue">Blau</label>
+                    <div onclick="chooseColor('chooseGreen')">
+                        <img class="line1" src="http://localhost/wep-prog-2/data/green.png">
+                        <p class="line1" >Grün</p>
                     </div>
-                    <div class="colorDropdownChoose" id="green">
-                        <img src="../data/green.png">
-                        <label for="green">Grün</label>
+                    <div onclick="chooseColor('chooseBlue')">
+                        <img class="line1" src="http://localhost/wep-prog-2/data/blue.png">
+                        <p class="line1">Blau</p>
                     </div>
-                    <div class="colorDropdownChoose" id="yellow">
-                        <img src="../data/yellow.png">
-                        <label for="yellow">Gelb</label>
+                    <div onclick="chooseColor('chooseYellow')">
+                        <img class="line1" src="http://localhost/wep-prog-2/data/yellow.png">
+                        <p class="line1">Gelb</p>
                     </div>
                 </div>
             </div>
+            <br>
+            <button class="btn" onclick="registerUser()">Registrieren</button>
         </form>
     </div>
 </body>
