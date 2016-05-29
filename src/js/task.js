@@ -1,46 +1,54 @@
 /**
  * Created by Markus on 20.05.2016.
  */
-var taskBox;
 var modal;
 var counter=0;
+var textArea;
+var node;
 
+//noinspection JSAnnotator
 function add(listID){
     //adds a taskBox to the tasklist
     counter++;
-    var node = document.createElement("DIV");            
-    var button = document.createElement("BUTTON");
-    var buttonText = document.createTextNode("Beschreibung hinzufügen");
-    button.appendChild(buttonText);
-    button.addEventListener("click", modalDialog);
-    node.className="task";  //for css
+    node = document.createElement("DIV");
+    var taskBoxLabel = document.createElement("LABEL");
+    taskBoxLabel.className="taskBoxLabel";
+    taskBoxLabel.id="taskLabel"+counter;
+    node.className="task";  //for CSS
     node.id="task"+counter;
     console.log(node.id);
-    //make taskbox draggable
+
+    //make taskbox draggable and append children    
     node.draggable="true";
-    node.ondragstart="drag(event)";
-    node.appendChild(button);
+    node.addEventListener("dragstart", drag);
     document.getElementById(listID).appendChild(node);
+    node.appendChild(taskBoxLabel);
 };
 
 function modalDialog(){
     //show modal dialog
     modal = document.getElementById('modalDialog');
     modal.style.display="block";
-}
-
-
-function close(){
-    modal = document.getElementById('modalDialog');
-    modal.style.display="none";
-    console.log("hallo");
+    textArea = document.getElementById('taskDescription');
+    textArea.value="";
 };
 
-function save(textarea){
+function cancel(){
     modal = document.getElementById('modalDialog');
     modal.style.display="none";
-    textarea.value
-    //TODO: Insert textdescription
-    //var description=document.getElementById("taskDescription");
-    //var inputtext=document.createTextNode();
 }
+
+function save(){
+    modal = document.getElementById('modalDialog');
+    modal.style.display="none";
+    var label = document.getElementById("taskLabel"+counter);
+    label.innerHTML=textArea.value;
+
+    // optional: change height of taskbox for long textareas
+    //var textLength = document.getElementById("taskDescription").value.length;
+    //console.log(textLength);
+    //if (textLength > 25){
+    //    node.style.height="10%";
+    //}
+};
+
