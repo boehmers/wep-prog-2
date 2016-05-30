@@ -133,3 +133,14 @@ body {
     .column { width: 100%; }
     .modal {width:80%;}
 }
+
+.commentContent {
+    position:relative;
+    padding-left:20px;
+    padding-bottom:10px;
+    display:block;
+}
+
+.comments{
+    padding-left:20px;
+}

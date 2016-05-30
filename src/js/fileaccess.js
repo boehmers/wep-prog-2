@@ -2,7 +2,8 @@ function writeFile(filename, content) {
 	var request = new XMLHttpRequest();
 	request.open("GET", "../php/savefile.php?filename=../../data/" + filename + "&content=" + content, false);
     request.send();
-	console.log("Write done!");
+	console.log("Write done! " + filename);
+	console.log("  Content: " + content);
 }
 
 function writeFileAsync(filename, content, onDone) {
@@ -10,6 +11,8 @@ function writeFileAsync(filename, content, onDone) {
 	request.onreadystatechange = function(){
 			if (request.readyState == XMLHttpRequest.DONE) {
 				onDone();
+				console.log("Write done! " + filename);
+				console.log("  Content: " + content);
 			}
 		};
 	request.open("GET", "../php/savefile.php?filename=../../data/" + filename + "&content=" + content, true);
@@ -20,8 +23,8 @@ function readFile(filename) {
 	var request = new XMLHttpRequest();
 	request.open("GET", "../php/readfile.php?filename=../../data/" + filename, false);
     request.send();
-	console.log("Read done!");
-	console.log(request.responseText);
+	console.log("Read done! " + filename);
+	console.log("  Content: " + request.responseText);
 	return request.responseText;
 }
 
@@ -30,6 +33,8 @@ function readFileAsync(filename, onDone) {
 	request.onreadystatechange = function(){
 			if (request.readyState == XMLHttpRequest.DONE) {
 				onDone(request.responseText);
+				console.log("Read done! " + filename);
+				console.log("  Content: " + request.responseText);
 			}
 		};
 	request.open("GET", "../php/readfile.php?filename=../../data/" + filename, true);

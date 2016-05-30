@@ -12,5 +12,6 @@ function drag(ev) {
 function drop(ev) {
     ev.preventDefault();
     var data = ev.dataTransfer.getData("text");
+    updateTaskStatus(data, ev.target.id);
     ev.target.appendChild(document.getElementById(data));
 }
