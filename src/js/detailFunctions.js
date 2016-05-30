@@ -75,3 +75,17 @@ function saveComment(comment) {
     writeFile("comments/" + currentTaskId + ".json", JSON.stringify(comments));
     loadComments();
 }
+
+/**
+ * Loescht den aktuell betrachteten Task.
+ */
+function deleteTask() {
+    var tasks = JSON.parse(readFile("tasks.json"));
+    for (var i = 0; i < tasks.length; i++) {
+        if (tasks[i].id === currentTaskId) {
+            tasks.splice(i,1);
+            writeFile("tasks.json", JSON.stringify(tasks));
+            window.open("../html/main.html","_self");
+        }
+    }
+}
