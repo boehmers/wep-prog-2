@@ -11,7 +11,7 @@ function add(title, description) {
     var newID = readFile("taskCounter");
     writeFile("taskCounter", parseInt(newID) + 1);
 
-    var taskData = {id: newID, name: title, user: localStorage.user, description: description, status: "taskList1"};
+    var taskData = {id: newID, name: title, user: "[Niemand]", description: description, status: "taskList1"};
 
     var taskFile = JSON.parse(readFile("tasks.json"));
     taskFile.push(taskData);
@@ -34,6 +34,7 @@ function addTaskData(taskData) {
     div.appendChild(document.createElement("BR"));
 
     var userLabel = document.createElement("LABEL");
+    userLabel.id = "userLabel" + taskData.id;
     userLabel.innerHTML = taskData.user;
     div.appendChild(userLabel);
 
@@ -152,6 +153,8 @@ function updateTaskStatus(target, status) {
     for (var i = 0; i < tasks.length; i++) {
         if (tasks[i].id === taskID) {
             tasks[i].status = newStatus;
+            tasks[i].user = localStorage.user;
+            document.getElementById("userLabel" + taskID).innerHTML = localStorage.user;
             writeFile("tasks.json", JSON.stringify(tasks));
         }
     }
