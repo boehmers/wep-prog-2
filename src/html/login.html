@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <link rel="stylesheet" href="../css/loginStyle.css">
@@ -75,4 +76,83 @@
         </form>
     </div>
 </body>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="../css/loginStyle.css">
+<link rel="stylesheet" href="../css/style.css">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Fancy Project Planner</title>
+    <script language="JavaScript" type="text/javascript" src="../js/loginFunctions.js"></script>
+    <script src="../js/task.js"></script>
+    <script src="../js/userdata.js"></script>
+</head>
+<body>
+
+    <!-- initial Login-Screen-->
+    <div class="centeredContent">
+        <form class="center" action="http://localhost/wep-prog-2/src/html/main.html">
+            <label for="username" class="formFields">Username</label>
+            <input id="username" class="formFields" type="text" placeholder="Username">
+            <br>
+            <label for="password" class="formFields">Passwort</label>
+            <input id="password" class="formFields" placeholder="Passwort" type="password">
+            <br>
+            <button type="button" class="btn" onclick="loginCheck()">Login</button>
+            <button type="submit" id="registerButton" class="btn" onclick="pressRegisterButton()">Registrieren</button>
+        </form>
+    </div>
+
+    <!--register-screen, opens when the "Register"-button is pressed-->
+    <div id="registerDialog" class="center">
+        <span class=close onclick="closeRegDialog(registerDialog.id)">X</span>  <!--Zum schließen-->
+
+        <!-- Input of User-Daten-->
+        <form class="centeredContent">
+            <label for="regUsername" class="formFields">Username</label>
+            <input id="regUsername" class="formFields" type="text" placeholder="Username">
+            <br>
+            <label for="regPw" class="formFields">Passwort</label>
+            <input id="regPw" class="formFields" type="password" placeholder="Passwort">
+            <br>
+            <label for="confirmRegPw" class="formFields">Passwort bestätigen</label>
+            <input id="confirmRegPw" class="formFields" type="password" placeholder="Passwort bestätigen">
+            <br>
+
+            <!--Dropdown-Menu for the choice of the new users colour
+            Red: #A80000
+            Green: #00CC33
+            Blue: #3366FF
+            Yellow: #ccff00
+            -->
+            <div class="dropdown">
+                <button class="btn" id="dropbtn">Farbe</button>
+
+                <div class="dropdownContent">
+                    <div onclick="chooseColor('chooseRed')">
+                        <img class="line1" src="http://localhost/wep-prog-2/data/red.png">
+                        <p class="line1">Rot</p>
+                    </div>
+                    <div onclick="chooseColor('chooseGreen')">
+                        <img class="line1" src="http://localhost/wep-prog-2/data/green.png">
+                        <p class="line1" >Grün</p>
+                    </div>
+                    <div onclick="chooseColor('chooseBlue')">
+                        <img class="line1" src="http://localhost/wep-prog-2/data/blue.png">
+                        <p class="line1">Blau</p>
+                    </div>
+                    <div onclick="chooseColor('chooseYellow')">
+                        <img class="line1" src="http://localhost/wep-prog-2/data/yellow.png">
+                        <p class="line1">Gelb</p>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <button class="btn" onclick="registerUser()">Registrieren</button>
+        </form>
+    </div>
+</body>
+>>>>>>> 8d4004d67a7d9f410a11da3592a7e996f17ff286
 </html>
