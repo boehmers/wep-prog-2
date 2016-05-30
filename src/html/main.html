@@ -28,7 +28,7 @@
         <p>Ideen / Ausstehend</p>
         <ul id="taskList1"></ul>
         <div class="addTaskBox">
-            <div class="plusCircle" onclick="modalDialog()">+</div>
+            <div class="plusCircle" onclick="modalDialog('modalDialog')">+</div>
         </div>
     </div>
     <div class="column" ondrop="drop(event)" ondragover="allowDrop(event)">
@@ -54,6 +54,26 @@
             <div class="button" onclick="add(taskList1.id);save()">Speichern</div>
             <div class="button" onclick="cancel()">Abbrechen</div>
         </form>
+    </div>
+</div>
+
+<!-- Detail-Ansicht-->
+<div id="details" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="cancel()">x</span>
+        <p>Titel</p>
+        <div id="title">none</div>
+        <p>Beschreibung</p>
+        <div id="description">none</div>
+        <p>Bearbeiter</p>
+        <div id="assignedUser">none</div>
+        <p>Kommentar hinzufügen:</p>
+        <textarea id="commentTextarea" class="modal-text" rows="5" maxlength="50"></textarea>
+        <div class="button" onclick="TODO">Speichern</div>
+        <p>Kommentare</p>
+        <div id="comments">
+            <!-- TODO: Kommentarliste laden -->
+        </div>
     </div>
 </div>
 </body>
