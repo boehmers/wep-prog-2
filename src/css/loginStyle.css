@@ -1,0 +1,110 @@
+.formFields{
+    display: inline-block;
+    width: 15em;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+/*centers Container in the window*/
+.center{
+    margin: 15% auto;
+    width: 33.3%;
+    display: block;
+    background-color: #99CCFF;
+    border: 1px solid #B0B0B0;
+}
+
+/*center container-content*/
+.centeredContent{
+    text-align: center;
+    margin: 15% auto;
+}
+
+/*Dialog, for registring new users (Popup)*/
+#registerDialog{
+    display:none;
+    background-color: #99CCFF;
+    width: 50%;
+    border: 1px solid #B0B0B0;
+    z-index: 1;
+    position: fixed;
+    left: 25%;
+    top: -20%;
+}
+
+#colorDropdown img{
+    width: 30px;
+    height: 30px;
+}
+
+/*Buttons in general*/
+.btn{
+    background-color: #6699FF;
+    color: white;
+    padding: 8px;
+    font-size:16px;
+    border: thin solid #99CCCC;
+    cursor: pointer;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.btn:hover,
+.btn:focus{
+    background-color: #3333FF;
+}
+
+/*Dropdown Menu*/
+.dropdown{
+    position: relative;
+    display: inline-block;
+}
+
+/*Dropdown-Menü Inhalt*/
+.dropdownContent{
+    display: none;
+    background-color: #3333FF;
+    min-width: 150px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+
+/*The sections of the dropdown-menu*/
+.dropdownContent div{
+    color: #fefefe;
+    padding: 12px 16px;
+    text-decoration: none;
+}
+
+.dropdownContent div:hover{
+    background-color: #99CCFF;
+}
+
+.dropdown:hover .dropdownContent{
+    display: block;
+}
+
+.dropdown:hover{
+    background-color: #99CCFF;
+}
+
+/*assures that the dropdown-elements are placed in a line*/
+.line1{
+    display: inline-block;
+    width: 100%;
+}
+
+.dropdownContent img{
+    width: 25px;
+    height: 25px;
+    margin-left: 5px;
+    margin-right: 25px;
+}
+
+.dropdownContent p{
+    width: 15em;
+}
+
+/*Is changed, when a color is chosen*/
+#dropbtn{
+    color: #fefefe;
+}
