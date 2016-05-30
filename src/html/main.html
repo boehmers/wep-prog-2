@@ -10,13 +10,15 @@
 </head>
 <body onLoad="loadTasks()">
 <div class="header">
-    <!-- <script src="../js/userdata.js"> //TODO: script for userdata operations </script>
-    <p>Hallo,
-        <script>getUsername();  //TODO: read username from json </script></p> -->
-    <!-- <button onclick="function logoutUser() {
-            //TODO: logout user, delete session from server
-        }
-        logoutUser()">Logout</button> -->
+    <script src="../js/userdata.js"> //TODO: script for userdata operations </script>
+    <p id="user">Hallo,
+        <script>getUsername();</script>
+     </p>
+    <button onclick="function logoutUser() {
+        window.open('http://localhost/wep-prog-2/src/html/login.html', '_self');
+        } logoutUser();">
+        Logout
+    </button>
 </div>
 
 <h2>Fancy Project Planner</h2>

@@ -14,7 +14,7 @@
 
     <!-- initial Login-Screen-->
     <div class="centeredContent">
-        <form class="center">
+        <form class="center" action="http://localhost/wep-prog-2/src/html/main.html">
             <label for="username" class="formFields">Username</label>
             <input id="username" class="formFields" type="text" placeholder="Username">
             <br>
@@ -22,7 +22,7 @@
             <input id="password" class="formFields" placeholder="Passwort" type="password">
             <br>
             <button type="button" class="btn" onclick="loginCheck()">Login</button>
-            <button type="button" id="registerButton" class="btn" onclick="pressRegisterButton()">Registrieren</button>
+            <button type="submit" id="registerButton" class="btn" onclick="pressRegisterButton()">Registrieren</button>
         </form>
     </div>
 

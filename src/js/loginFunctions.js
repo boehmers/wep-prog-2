@@ -44,9 +44,11 @@ function feedbackColor(){
 function registerUser(){
     var pw1 = document.getElementById("regPw");
     var pw2 = document.getElementById("confirmRegPw");
+    var usern = document.getElementById("regUsername");
+    var col = document.getElementById("dropbtn");
 
     if(pw1.value === pw2.value){
-        register();
+        register(usern.value, pw1.value, col.style.color.toString());
     }
     else{
         alert("Passwörter stimmen nicht überein!");
