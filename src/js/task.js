@@ -63,9 +63,9 @@ function addTaskData(taskData) {
 /**
  * Öffnet den modalen Dialog zum Anlegen eines neuen Tasks.
  */
-function modalDialog() {
+function modalDialog(element) {
     //show modal dialog
-    modal = document.getElementById('modalDialog');
+    modal = document.getElementById(element);
     modal.style.display = "block";
     taskTitle = document.getElementById('taskTitle');
     taskTitle.value = "";
