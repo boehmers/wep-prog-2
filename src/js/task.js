@@ -3,7 +3,7 @@
  */
 var modal;
 var counter=0;
-var textArea;
+var taskTitle;
 var node;
 
 //noinspection JSAnnotator
@@ -29,8 +29,8 @@ function modalDialog(){
     //show modal dialog
     modal = document.getElementById('modalDialog');
     modal.style.display="block";
-    textArea = document.getElementById('taskDescription');
-    textArea.value="";
+    taskTitle = document.getElementById('taskTitle');
+    taskTitle.value="";
 };
 
 function cancel(){
@@ -42,7 +42,7 @@ function save(){
     modal = document.getElementById('modalDialog');
     modal.style.display="none";
     var label = document.getElementById("taskLabel"+counter);
-    label.innerHTML=textArea.value;
+    label.innerHTML=taskTitle.value;
 
     // optional: change height of taskbox for long textareas
     //var textLength = document.getElementById("taskDescription").value.length;
