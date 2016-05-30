@@ -41,19 +41,18 @@ function addTaskData(taskData) {
 
     div.appendChild(document.createElement("BR"));
 
-    var userLabel = document.createElement("LABEL");
-    userLabel.id = "userLabel" + taskData.id;
-    userLabel.innerHTML = taskData.user;
-    div.appendChild(userLabel);
-
-    div.appendChild(document.createElement("BR"));
-
     var detailButton = document.createElement("BUTTON");
     detailButton.innerHTML = "Details...";
+    detailButton.style.float = "right";
     detailButton.onclick = function () {
         showDetails(taskData.id);
     };
     div.appendChild(detailButton);
+
+    var userLabel = document.createElement("LABEL");
+    userLabel.id = "userLabel" + taskData.id;
+    userLabel.innerHTML = taskData.user;
+    div.appendChild(userLabel);
 
     //make taskbox draggable and append children    
     div.draggable = "true";
