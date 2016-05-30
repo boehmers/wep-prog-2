@@ -16,7 +16,7 @@ function add(listID){
     taskBoxLabel.id="taskLabel"+counter;
     node.className="task";  //for CSS
     node.id="task"+counter;
-    console.log(node.id);
+    //console.log(node.id);
 
     //make taskbox draggable and append children    
     node.draggable="true";
