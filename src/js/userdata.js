@@ -32,7 +32,6 @@ function loginCheck(){
     for(i; i < tempJson.length; i++){
         if((tempJson[i].user === usern) && (tempJson[i].pw === pwd)){
             //add code for successful login session
-            window.alert("Success!!!!11111oneeleven");
             window.open("../html/main.html?login=" + usern + "&colour=" + tempJson[i].color,"_self");
             return;
         }
