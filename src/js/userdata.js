@@ -3,7 +3,7 @@
  */
 
 function register(username, password, colour){
-    var tempJson = JSON.parse(readFile("example.json")); //look up for names that already taken
+    var tempJson = JSON.parse(readFile("users.json")); //look up for names that already taken
     var i = 0;
     for(i; i < tempJson.length; i++){
         if(tempJson[i].user === username){
@@ -20,19 +20,22 @@ function register(username, password, colour){
     tempJson.push(usern);
 
     var writeDown = JSON.stringify(tempJson);
-    writeFile("example.json", writeDown);
+    writeFile("users.json", writeDown);
 }
 
 function loginCheck(){
     var usern = document.getElementById("username").value;
     var pwd = document.getElementById("password").value;
 
-    var tempJson = JSON.parse(readFile("example.json")); //look up for names that already taken
+    var tempJson = JSON.parse(readFile("users.json")); //look up for names that already taken
     var i = 0;
     for(i; i < tempJson.length; i++){
         if((tempJson[i].user === usern) && (tempJson[i].pw === pwd)){
             //add code for successful login session
-            window.open("../html/main.html?login=" + usern + "&colour=" + tempJson[i].color,"_self");
+            localStorage.user = usern;
+            localStorage.userColor = tempJson[i].color;
+            //window.alert("Success!!!!11111oneeleven");
+            window.open("../html/main.html","_self");
             return;
         }
     }
@@ -40,14 +43,24 @@ function loginCheck(){
     window.alert("User/Passwort nicht vorhanden.");
 }
 
-//Displays Username in Colour
+/**
+ * Setzt den Benutzer im Dokument.
+ */
 function getUsername() {
-    var parameters = window.location.search.substring(1).split("&"); //read parameters from URL...
-    var pair1 = parameters[0].split("=");
-    var pair2 = parameters[1].split("=");
-    var par = document.createElement("SPAN");
-    var t = document.createTextNode(decodeURI(pair1[1]));
-    par.appendChild(t);
-    par.style.color = decodeURI(pair2[1]); //Decode because its encoded in URI
-    document.getElementById("user").appendChild(par);
+     var par = document.createElement("SPAN");
+     var t = document.createTextNode(localStorage.user);
+     par.appendChild(t);
+     par.style.color = decodeURI(localStorage.userColor); //Decode because its encoded in URI;
+     document.getElementById("user").appendChild(par);
+}
+
+/**
+ * Prueft, ob ein Benutzer angemeldet ist.
+ * Ist kein Benutzer angemeldet, so wird auf die login-Seite weitergeleitet.
+ */
+function checkForUser() {
+    //localStorage.user = "Testuser"; //TODO Für Testzwecke einkommentieren
+    if(localStorage.user === undefined){
+        window.open('http://localhost/wep-prog-2/src/html/login.html', '_self');
+    }
 }

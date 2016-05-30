@@ -7,14 +7,17 @@
     <script src="../js/task.js"></script>
     <script src="../js/dragndrop.js"></script>
 	<script src="../js/fileaccess.js"></script>
+    <script src="../js/detailFunctions.js"></script>
+    <script src="../js/userdata.js"></script>
 </head>
-<body>
+<body onLoad="checkForUser();loadTasks()">
 <div class="header">
-    <script src="../js/userdata.js"> //TODO: script for userdata operations </script>
     <p id="user">Hallo,
         <script>getUsername();</script>
      </p>
     <button onclick="function logoutUser() {
+        delete localStorage.user;
+        delete localStorage.userColor;
         window.open('http://localhost/wep-prog-2/src/html/login.html', '_self');
         } logoutUser();">
         Logout
@@ -22,25 +25,20 @@
 </div>
 
 <h2>Fancy Project Planner</h2>
-<!-- TEST-BUTTONS -->
-<button onclick="readFile('example.json')">Test-Lesen</button>
-<button onclick="readFileAsync('example.json', TESTOnDoneRead)">Test-Lesen-Async</button>
-<button onclick="writeFile('testwrite.txt', 'Test-Text')">Test-Schreiben</button>
-<button onclick="writeFileAsync('testwrite.txt', 'Test-Text', TESTOnDoneWrite)">Test-Schreiben-Async</button>
 
 <div class="planner group">
-    <div class="column">
+    <div id="column1" class="column">
         <p>Ideen / Ausstehend</p>
         <ul id="taskList1"></ul>
         <div class="addTaskBox">
-            <div class="plusCircle" onclick="modalDialog()">+</div>
+            <div class="plusCircle" onclick="modalDialog('modalDialog')">+</div>
         </div>
     </div>
-    <div class="column" ondrop="drop(event)" ondragover="allowDrop(event)">
+    <div id="column2" class="column" ondrop="drop(event)" ondragover="allowDrop(event)">
         <p>In Bearbeitung</p>
         <ul id="taskList2"></ul>
     </div>
-    <div class="column" ondrop="drop(event)" ondragover="allowDrop(event)">
+    <div id="column3" class="column" ondrop="drop(event)" ondragover="allowDrop(event)">
         <p>Abgeschlossen</p>
         <ul id="taskList3"></ul>
     </div>
@@ -50,13 +48,34 @@
 <!-- <button id="addTaskBtn" >Aufgabe hinzufügen</button> -->
 <div id="modalDialog" class="modal">
     <div class="modal-content">
-        <span class="close" onclick="cancel()">x</span>
+        <span class="close" onclick="closeModalDialogs()">x</span>
         <form id="textForm">
-            <p>Text:</p>
-            <textarea id="taskDescription" class="modal-text" autofocus rows="5" maxlength="50"></textarea>
-            <div class="button" onclick="add(taskList1.id);save()">Speichern</div>
-            <div class="button" onclick="cancel()">Abbrechen</div>
+            <p>Name/Titel:</p>
+            <input id="taskTitle" maxlength="10" autofocus/>
+            <p>Beschreibung:</p>
+            <textarea id="taskDescription" class="modal-text" rows="5" maxlength="50"></textarea>
+            <div class="button" onclick="add(taskTitle.value, taskDescription.value);closeModalDialogs()">Speichern</div>
+            <div class="button" onclick="closeModalDialogs()">Abbrechen</div>
         </form>
+    </div>
+</div>
+
+<!-- Detail-Ansicht-->
+<div id="details" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModalDialogs()">x</span>
+        <p>Titel</p>
+        <div id="title">none</div>
+        <p>Beschreibung</p>
+        <div id="description">none</div>
+        <p>Bearbeiter</p>
+        <div id="assignedUser">none</div>
+        <span class="deleteTask" onclick="deleteTask()">Task löschen</span>
+        <p>Kommentar hinzufügen:</p>
+        <textarea id="commentTextarea" class="modal-text" rows="5" maxlength="50"></textarea>
+        <div class="button" onclick="saveComment(commentTextarea.value)">Speichern</div>
+        <p>Kommentare</p>
+        <div id="comments" class="comments"/>
     </div>
 </div>
 </body>
