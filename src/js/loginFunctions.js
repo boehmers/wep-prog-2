@@ -61,6 +61,8 @@ function closeColorDrop(){
     dropdownMenu.style.display="none";
 }
 
-function colorButtonClicked(){
+function showColorDropdown(){
+    var dropdownMenu = document.getElementById("colorDropdownMenu");
 
+    dropdownMenu.style.display="block";
 }
