@@ -3,9 +3,13 @@
  */
 var modal;
 var taskTitle;
-var currentTaskId;
 
 //noinspection JSAnnotator
+/**
+ * Erstellt einen neuen Task.
+ * @param title Titel des Tasks
+ * @param description Beschreibung des Tasks
+ */
 function add(title, description) {
     //adds a taskBox to the tasklist
     var newID = readFile("taskCounter");
@@ -22,6 +26,10 @@ function add(title, description) {
     addTaskData(taskData);
 };
 
+/**
+ * Fügt dem Dokument den Task hinzu.
+ * @param taskData Die Daten des Tasks
+ */
 function addTaskData(taskData) {
     var div = document.createElement("DIV");
     div.className = "task";
@@ -53,6 +61,9 @@ function addTaskData(taskData) {
     document.getElementById(taskData.status).appendChild(div);
 };
 
+/**
+ * Öffnet den modalen Dialog zum Anlegen eines neuen Tasks.
+ */
 function modalDialog() {
     //show modal dialog
     modal = document.getElementById('modalDialog');
@@ -61,6 +72,9 @@ function modalDialog() {
     taskTitle.value = "";
 };
 
+/**
+ * Schließt alle modalen Dialoge.
+ */
 function closeModalDialogs() {
     modal = document.getElementById('modalDialog');
     modal.style.display = "none";
@@ -80,6 +94,9 @@ function save() { //TODO nötig?
     //}
 };
 
+/**
+ * Laedt alle Tasks fuer die Uebersicht.
+ */
 function loadTasks() {
     var tasksJSON = readFile("tasks.json");
     var tasks = JSON.parse(tasksJSON);
@@ -88,65 +105,13 @@ function loadTasks() {
     }
 }
 
-function showDetails(taskID) {
-    //show modal dialog
-    currentTaskId = taskID;
-    modal = document.getElementById('details');
-    modal.style.display = "block";
-    fillDetails();
-    loadComments();
-};
-
-function fillDetails() {
-    var task = getTaskById(currentTaskId);
-    document.getElementById("title").innerHTML = task.name;
-    document.getElementById("description").innerHTML = task.description;
-    document.getElementById("assignedUser").innerHTML = task.user;
-}
-
-function loadComments() {
-    var commentsJSON = readFile("comments/" + currentTaskId + ".json");
-    var comments = JSON.parse(commentsJSON);
-
-    var commentsNode = document.getElementById("comments");
-    while (commentsNode.firstChild) {
-        commentsNode.removeChild(commentsNode.firstChild);
-    }
-
-    for (var i = 0; i < comments.length; i++) {
-        addCommentData(comments[i]);
-    }
-}
-
-function addCommentData(commentData) {
-    var div = document.createElement("DIV");
-    //div.className = "task";
-
-    var nameLabel = document.createElement("LABEL");
-    nameLabel.innerHTML = commentData.user;
-    nameLabel.style.color = commentData.userColor;
-    div.appendChild(nameLabel);
-
-    div.appendChild(document.createElement("BR"));
-
-    var contentLabel = document.createElement("LABEL");
-    contentLabel.innerHTML = "   " + commentData.text;
-    contentLabel.className = "commentContent";
-    div.appendChild(contentLabel);
-
-    document.getElementById("comments").appendChild(div);
-}
-
-function saveComment(comment) {
-    var commentData = {user: localStorage.user, userColor: localStorage.userColor, text: comment};
-    var comments = JSON.parse(readFile("comments/" + currentTaskId + ".json"));
-    comments.push(commentData);
-    writeFile("comments/" + currentTaskId + ".json", JSON.stringify(comments));
-    loadComments();
-}
-
-function updateTaskStatus(target, status) {
-    var newStatus = status.replace("column", "taskList");
+/**
+ * Aktualisiert den Status des Tasks.
+ * @param target Das target der Drag&Drop-Aktion (ein Task-Fenster)
+ * @param newColumn Die id der neuen Spalte
+ */
+function updateTaskStatus(target, newColumn) {
+    var newStatus = newColumn.replace("column", "taskList");
     var taskID = target.replace("taskData", "");
 
     var tasks = JSON.parse(readFile("tasks.json"));
@@ -160,10 +125,14 @@ function updateTaskStatus(target, status) {
     }
 }
 
+/**
+ * Sucht den Task zu einer ID.
+ * @param taskId Die gesuchte Task-ID
+ */
 function getTaskById(taskId) {
     var tasks = JSON.parse(readFile("tasks.json"));
     for (var i = 0; i < tasks.length; i++) {
-        if (tasks[i].id === currentTaskId) {
+        if (tasks[i].id === taskId) {
             return tasks[i];
         }
     }

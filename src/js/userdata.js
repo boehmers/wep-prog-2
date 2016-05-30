@@ -43,7 +43,9 @@ function loginCheck(){
     window.alert("User/Passwort nicht vorhanden.");
 }
 
-//Displays Username in Colour
+/**
+ * Setzt den Benutzer im Dokument.
+ */
 function getUsername() {
      var par = document.createElement("SPAN");
      var t = document.createTextNode(localStorage.user);
@@ -52,6 +54,10 @@ function getUsername() {
      document.getElementById("user").appendChild(par);
 }
 
+/**
+ * Prueft, ob ein Benutzer angemeldet ist.
+ * Ist kein Benutzer angemeldet, so wird auf die login-Seite weitergeleitet.
+ */
 function checkForUser() {
     //localStorage.user = "Testuser"; //TODO Für Testzwecke einkommentieren
     if(localStorage.user === undefined){
