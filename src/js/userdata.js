@@ -46,7 +46,7 @@ function getUsername() {
     var pair1 = parameters[0].split("=");
     var pair2 = parameters[1].split("=");
     var par = document.createElement("SPAN");
-    var t = document.createTextNode(pair1[1]);
+    var t = document.createTextNode(decodeURI(pair1[1]));
     par.appendChild(t);
     par.style.color = decodeURI(pair2[1]); //Decode because its encoded in URI
     document.getElementById("user").appendChild(par);

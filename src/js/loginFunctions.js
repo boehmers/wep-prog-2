@@ -25,19 +25,19 @@ function feedbackColor(){
     var changingProperty = document.getElementById("dropbtn");
     
     if(chosenColor === "chooseRed"){
-        changingProperty.style.color="#A80000";
+        changingProperty.style.background="#A80000";
     }
 
     else if(chosenColor === "chooseBlue"){
-        changingProperty.style.color="#3366FF";
+        changingProperty.style.background="#3366FF";
     }
 
     else if(chosenColor === "chooseGreen"){
-        changingProperty.style.color="#00CC33";
+        changingProperty.style.background="#00CC33";
     }
 
     else if(chosenColor === "chooseYellow"){
-        changingProperty.style.color="#ccff00";
+        changingProperty.style.background="#ccff00";
     }
 }
 
@@ -53,4 +53,14 @@ function registerUser(){
     else{
         alert("Passwörter stimmen nicht überein!");
     }
+}
+
+function closeColorDrop(){
+    var dropdownMenu = document.getElementById("colorDropdownMenu");
+
+    dropdownMenu.style.display="none";
+}
+
+function colorButtonClicked(){
+
 }
