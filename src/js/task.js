@@ -2,60 +2,88 @@
  * Created by Markus on 20.05.2016.
  */
 var modal;
-var counter=0;
 var taskTitle;
-var taskDescription;
-var detailsButton;
-var node;
 
 //noinspection JSAnnotator
-function add(listID) {
+/**
+ * Erstellt einen neuen Task.
+ * @param title Titel des Tasks
+ * @param description Beschreibung des Tasks
+ */
+function add(title, description) {
     //adds a taskBox to the tasklist
-    counter++;
-    node = document.createElement("DIV");
-    detailsButton = document.createElement("DIV");
-    var taskBoxLabel = document.createElement("LABEL");
+    var newID = readFile("taskCounter");
+    writeFile("taskCounter", parseInt(newID) + 1);
 
-    detailsButton.innerHTML = "Details...";
-    detailsButton.className = "button";
-    detailsButton.id = "detailsButton"+counter;
-    detailsButton.addEventListener('click', modalDialog('details'));
+    var taskData = {id: newID, name: title, user: "[Niemand]", description: description, status: "taskList1"};
 
-    taskBoxLabel.className="taskBoxLabel";
-    taskBoxLabel.id="taskLabel"+counter;
-    node.className="task";  //for CSS
-    node.id="task"+counter;
+    var taskFile = JSON.parse(readFile("tasks.json"));
+    taskFile.push(taskData);
+    writeFile("tasks.json", JSON.stringify(taskFile));
 
-    //make taskbox draggable and append children 
-    node.draggable="true";
-    node.addEventListener("dragstart", drag);
-    document.getElementById(listID).appendChild(node);
-    node.appendChild(taskBoxLabel);
-    node.appendChild(detailsButton);
+    writeFile("comments/" + newID + ".json", "[]");
 
+    addTaskData(taskData);
 };
 
-function modalDialog(element){
+/**
+ * Fügt dem Dokument den Task hinzu.
+ * @param taskData Die Daten des Tasks
+ */
+function addTaskData(taskData) {
+    var div = document.createElement("DIV");
+    div.className = "task";
+    div.id = "taskData" + taskData.id;
+
+    var nameLabel = document.createElement("LABEL");
+    nameLabel.innerHTML = taskData.name;
+    div.appendChild(nameLabel);
+
+    div.appendChild(document.createElement("BR"));
+
+    var detailButton = document.createElement("BUTTON");
+    detailButton.innerHTML = "Details...";
+    detailButton.style.float = "right";
+    detailButton.onclick = function () {
+        showDetails(taskData.id);
+    };
+    div.appendChild(detailButton);
+
+    var userLabel = document.createElement("LABEL");
+    userLabel.id = "userLabel" + taskData.id;
+    userLabel.innerHTML = taskData.user;
+    div.appendChild(userLabel);
+
+    //make taskbox draggable and append children    
+    div.draggable = "true";
+    div.addEventListener("dragstart", drag);
+    document.getElementById(taskData.status).appendChild(div);
+};
+
+/**
+ * Öffnet den modalen Dialog zum Anlegen eines neuen Tasks.
+ */
+function modalDialog() {
     //show modal dialog
-    modal = document.getElementById(element);
+    modal = document.getElementById('modalDialog');
     modal.style.display = "block";
     taskTitle = document.getElementById('taskTitle');
     taskTitle.value = "";
-    taskDescription = document.getElementById('taskDescription');
-    taskDescription.value = "";
-
 };
 
-function cancel(){
+/**
+ * Schließt alle modalen Dialoge.
+ */
+function closeModalDialogs() {
     modal = document.getElementById('modalDialog');
-    modal.style.display="none";
+    modal.style.display = "none";
+    modal = document.getElementById('details');
+    modal.style.display = "none";
 }
 
-function save(){
+function save() { //TODO nötig?
     modal = document.getElementById('modalDialog');
-    modal.style.display="none";
-    var label = document.getElementById("taskLabel"+counter);
-    label.innerHTML=taskTitle.value;
+    modal.style.display = "none";
 
     // optional: change height of taskbox for long textareas
     //var textLength = document.getElementById("taskDescription").value.length;
@@ -65,4 +93,46 @@ function save(){
     //}
 };
 
+/**
+ * Laedt alle Tasks fuer die Uebersicht.
+ */
+function loadTasks() {
+    var tasksJSON = readFile("tasks.json");
+    var tasks = JSON.parse(tasksJSON);
+    for (var i = 0; i < tasks.length; i++) {
+        addTaskData(tasks[i]);
+    }
+}
 
+/**
+ * Aktualisiert den Status des Tasks.
+ * @param target Das target der Drag&Drop-Aktion (ein Task-Fenster)
+ * @param newColumn Die id der neuen Spalte
+ */
+function updateTaskStatus(target, newColumn) {
+    var newStatus = newColumn.replace("column", "taskList");
+    var taskID = target.replace("taskData", "");
+
+    var tasks = JSON.parse(readFile("tasks.json"));
+    for (var i = 0; i < tasks.length; i++) {
+        if (tasks[i].id === taskID) {
+            tasks[i].status = newStatus;
+            tasks[i].user = localStorage.user;
+            document.getElementById("userLabel" + taskID).innerHTML = localStorage.user;
+            writeFile("tasks.json", JSON.stringify(tasks));
+        }
+    }
+}
+
+/**
+ * Sucht den Task zu einer ID.
+ * @param taskId Die gesuchte Task-ID
+ */
+function getTaskById(taskId) {
+    var tasks = JSON.parse(readFile("tasks.json"));
+    for (var i = 0; i < tasks.length; i++) {
+        if (tasks[i].id === taskId) {
+            return tasks[i];
+        }
+    }
+}

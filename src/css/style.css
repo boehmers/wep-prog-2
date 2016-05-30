@@ -86,6 +86,19 @@ body {
     cursor: pointer;
 }
 
+.deleteTask {
+    color: red;
+    float: right;
+    font-size: 10px;
+    font-weight: bold;
+}
+.deleteTask:hover,
+.deleteTask:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
 .task{
     border:2px solid #000;
     border-radius: 8px;
@@ -134,4 +147,15 @@ body {
     .col { margin: 1% 0 1% 0%;}
     .column { width: 100%; }
     .modal {width:80%;}
+}
+
+.commentContent {
+    position:relative;
+    padding-left:20px;
+    padding-bottom:10px;
+    display:block;
+}
+
+.comments{
+    padding-left:20px;
 }
