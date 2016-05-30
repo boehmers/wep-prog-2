@@ -59,8 +59,8 @@ function getUsername() {
  * Ist kein Benutzer angemeldet, so wird auf die login-Seite weitergeleitet.
  */
 function checkForUser() {
-    //localStorage.user = "Testuser"; //TODO Für Testzwecke einkommentieren
+    localStorage.user = "Testuser"; //TODO Für Testzwecke einkommentieren
     if(localStorage.user === undefined){
-        window.open('http://localhost/wep-prog-2/src/html/login.html', '_self');
+        window.open('../html/login.html', '_self');
     }
 }
