@@ -79,6 +79,7 @@
     background-color: #99CCFF;
 }
 
+/*Opens the Dropdown-Menu*/
 .dropdown:hover .dropdownContent{
     display: block;
 }

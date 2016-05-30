@@ -50,9 +50,9 @@
             Yellow: #ccff00
             -->
             <div class="dropdown">
-                <button class="btn" id="dropbtn">Farbe</button>
+                <button class="btn" id="dropbtn" type="button" onclick="showColorDropdown()">Farbe</button>
 
-                <div class="dropdownContent">
+                <div id="colorDropdownMenu" class="dropdownContent" onclick="closeColorDrop()">
                     <div onclick="chooseColor('chooseRed')">
                         <img class="line1" src="http://localhost/wep-prog-2/data/red.png">
                         <p class="line1">Rot</p>
