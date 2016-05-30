@@ -3,7 +3,7 @@
  */
 
 function register(username, password, colour){
-    var tempJson = JSON.parse(readFile("example.json")); //look up for names that already taken
+    var tempJson = JSON.parse(readFile("users.json")); //look up for names that already taken
     var i = 0;
     for(i; i < tempJson.length; i++){
         if(tempJson[i].user === username){
@@ -20,14 +20,14 @@ function register(username, password, colour){
     tempJson.push(usern);
 
     var writeDown = JSON.stringify(tempJson);
-    writeFile("example.json", writeDown);
+    writeFile("users.json", writeDown);
 }
 
 function loginCheck(){
     var usern = document.getElementById("username").value;
     var pwd = document.getElementById("password").value;
 
-    var tempJson = JSON.parse(readFile("example.json")); //look up for names that already taken
+    var tempJson = JSON.parse(readFile("users.json")); //look up for names that already taken
     var i = 0;
     for(i; i < tempJson.length; i++){
         if((tempJson[i].user === usern) && (tempJson[i].pw === pwd)){
