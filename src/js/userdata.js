@@ -17,43 +17,53 @@ function readFile(filename) {
     return request.responseText;
 };
 
-function register(){
-    var user = document.getElementById("username").value;   //TODO: type right elements
-    var pwd = document.getElementById("password").value;   //take value from input
+function register(username, password, colour){
     var tempJson = JSON.parse(readFile("example.json")); //look up for names that already taken
     var i = 0;
     for(i; i < tempJson.user.length; i++){
-        if(tempJson.user[i][i] === user){
+        if(tempJson.user[i][i] === username){
             window.alert("This name already exist");
             return;
         }
     }
     //no existence of this username...
-    var greenhorn = new Object();
-    var unsave = new Object();
-    greenhorn[i] = user;
-    unsave[i] = pwd;
-    tempJson.user.push(greenhorn);
-    tempJson.dwp.push(unsave);
+    var usern = new Object();
+    var pw = new Object();
+    var col = new Object();
+    usern[i] = username;
+    pw[i] = password;
+    col[i] = colour ;
+    
+    tempJson.user.push(usern);
+    tempJson.dwp.push(pw);
+    tempJson.colo.push(col);
 
     var writeDown = JSON.stringify(tempJson);
     writeJSON("example.json", writeDown);
 }
 
 function loginCheck(){
-    var user = document.getElementById("username").value;   //TODO: type right elements
-    var pwd = document.getElementById("password").value;    //take value from input
+    var usern = document.getElementById("username").value;
+    var pwd = document.getElementById("password").value;
     var tempJson = JSON.parse(readFile("example.json")); //look up for names that already taken
     var i = 0;
     for(i; i < tempJson.user.length; i++){
-        if((tempJson.user[i][i] === user) && (tempJson.dwp[i][i] === pwd)){
+        if((tempJson.user[i][i] === usern) && (tempJson.dwp[i][i] === pwd)){
             //add code for successful login session
             window.alert("Success!!!!11111oneeleven");
+            window.open("http://localhost/wep-prog-2/src/html/main.html?login=" + usern + "&colour=" + tempJson.colo[i][i],"_self");
         }
     }
 }
 
-window.onload = function () {
-    document.getElementById("Register").onclick = register;
-    document.getElementById("Login").onclick = loginCheck;
-};
+//Displays Username in Colour
+function getUsername() {
+    var parameters = window.location.search.substring(1).split("&"); //read parameters from URL...
+    var pair1 = parameters[0].split("=");
+    var pair2 = parameters[1].split("=");
+    var par = document.createElement("SPAN");
+    var t = document.createTextNode(pair1[1]);
+    par.appendChild(t);
+    par.style.color = decodeURI(pair2[1]); //Decode because its encoded in URI
+    document.getElementById("user").appendChild(par);
+}
