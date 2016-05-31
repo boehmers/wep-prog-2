@@ -59,7 +59,7 @@ function getUsername() {
  * Ist kein Benutzer angemeldet, so wird auf die login-Seite weitergeleitet.
  */
 function checkForUser() {
-    localStorage.user = "Testuser"; //TODO Für Testzwecke einkommentieren
+    //localStorage.user = "Testuser"; //TODO Für Testzwecke einkommentieren
     if(localStorage.user === undefined){
         window.open('../html/login.html', '_self');
     }
