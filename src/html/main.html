@@ -51,9 +51,9 @@
         <span class="close" onclick="closeModalDialogs()">x</span>
         <form id="textForm">
             <p>Name/Titel:</p>
-            <input id="taskTitle" maxlength="10" autofocus/>
+            <input id="taskTitle" maxlength="20" autofocus/>
             <p>Beschreibung:</p>
-            <textarea id="taskDescription" class="modal-text" rows="5" maxlength="50"></textarea>
+            <textarea id="taskDescription" class="modal-text" rows="5" maxlength="100"></textarea>
             <div class="button" onclick="add(taskTitle.value, taskDescription.value);closeModalDialogs()">Speichern</div>
             <div class="button" onclick="closeModalDialogs()">Abbrechen</div>
         </form>
@@ -72,7 +72,7 @@
         <div id="assignedUser">none</div>
         <span class="deleteTask" onclick="deleteTask()">Task löschen</span>
         <p>Kommentar hinzufügen:</p>
-        <textarea id="commentTextarea" class="modal-text" rows="5" maxlength="50"></textarea>
+        <textarea id="commentTextarea" class="modal-text" rows="5" maxlength="100"></textarea>
         <div class="button" onclick="saveComment(commentTextarea.value)">Speichern</div>
         <p>Kommentare</p>
         <div id="comments" class="comments"/>
